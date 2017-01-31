@@ -27,7 +27,7 @@ class MysqlSchema extends BaseSchema
      */
     public function listTablesSql($config)
     {
-        return ['SHOW TABLES FROM ' . $this->_driver->quoteIdentifier($config['database']), []];
+        return ['SHOW FULL TABLES FROM ' . $this->_driver->quoteIdentifier($config['database']) . "WHERE Table_Type = 'BASE TABLE'", []];
     }
 
     /**
